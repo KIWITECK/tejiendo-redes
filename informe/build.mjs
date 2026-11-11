@@ -337,6 +337,7 @@ function html(tocPages = {}) {
 <div>Arquitectura de Software 20262 - N6 Gr A · Unidad 2</div>
 <div>Leydi Johana Polo Amador</div>
 <div>10 de noviembre de 2026</div>
+<div>Video de presentación: <a href="${VIDEO}">${VIDEO}</a></div>
 </section>
 <section class="toc"><div class="toc-h">Tabla de contenido</div>${tocHtml}</section>
 ${content}
