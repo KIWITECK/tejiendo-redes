@@ -1,0 +1,155 @@
+{
+  "fecha": "2026-11-11T00:08:47.205Z",
+  "iteraciones": 150000,
+  "repeticiones": 3,
+  "cpus": 10,
+  "e1": [
+    {
+      "nodos": 1,
+      "hilos": 2,
+      "configuracion": "1 nodo(s) × 2 hilos",
+      "tareas": 600,
+      "fallidas": 0,
+      "throughput": 68.7,
+      "p50": 927,
+      "p95": 974.4,
+      "p99": 982.5
+    },
+    {
+      "nodos": 2,
+      "hilos": 2,
+      "configuracion": "2 nodo(s) × 2 hilos",
+      "tareas": 600,
+      "fallidas": 0,
+      "throughput": 125.5,
+      "p50": 495.9,
+      "p95": 580.5,
+      "p99": 586.6
+    },
+    {
+      "nodos": 3,
+      "hilos": 2,
+      "configuracion": "3 nodo(s) × 2 hilos",
+      "tareas": 600,
+      "fallidas": 0,
+      "throughput": 155.2,
+      "p50": 404,
+      "p95": 452.1,
+      "p99": 462
+    },
+    {
+      "nodos": 4,
+      "hilos": 2,
+      "configuracion": "4 nodo(s) × 2 hilos",
+      "tareas": 600,
+      "fallidas": 0,
+      "throughput": 187.1,
+      "p50": 337.8,
+      "p95": 357.5,
+      "p99": 364.4
+    }
+  ],
+  "e2": [
+    {
+      "nodos": 1,
+      "hilos": 1,
+      "configuracion": "1 nodo × 1 hilo(s)",
+      "tareas": 400,
+      "fallidas": 0,
+      "throughput": 35,
+      "p50": 1826.4,
+      "p95": 1836.2,
+      "p99": 1836.5
+    },
+    {
+      "nodos": 1,
+      "hilos": 2,
+      "configuracion": "1 nodo × 2 hilo(s)",
+      "tareas": 400,
+      "fallidas": 0,
+      "throughput": 67.2,
+      "p50": 939.8,
+      "p95": 983.1,
+      "p99": 984.1
+    },
+    {
+      "nodos": 1,
+      "hilos": 4,
+      "configuracion": "1 nodo × 4 hilo(s)",
+      "tareas": 400,
+      "fallidas": 0,
+      "throughput": 127.2,
+      "p50": 498.2,
+      "p95": 508.9,
+      "p99": 514.4
+    },
+    {
+      "nodos": 1,
+      "hilos": 8,
+      "configuracion": "1 nodo × 8 hilo(s)",
+      "tareas": 400,
+      "fallidas": 0,
+      "throughput": 175.5,
+      "p50": 362.2,
+      "p95": 384,
+      "p99": 391.8
+    }
+  ],
+  "e3": {
+    "tareas": 900,
+    "completadas": 900,
+    "fallidas": 0,
+    "tareasReintentadas": 4,
+    "reintentosTotales": 4,
+    "huerfanasAlCaer": 4,
+    "deteccionMs": 1,
+    "nodoReincorporado": true,
+    "throughput": 150.2,
+    "p50": 303.2,
+    "p95": 367.8,
+    "p99": 376.6,
+    "repartoFinal": [
+      {
+        "id": "nodo-1",
+        "hechas": 351
+      },
+      {
+        "id": "nodo-3",
+        "hechas": 351
+      },
+      {
+        "id": "nodo-2",
+        "hechas": 115
+      }
+    ]
+  },
+  "e4": [
+    {
+      "configuracion": "V0 línea base: round-robin, sin límite, un hilo por tarea",
+      "tareas": 900,
+      "fallidas": 0,
+      "throughput": 132.5,
+      "p50": 933.1,
+      "p95": 1321.3,
+      "p99": 1436.8
+    },
+    {
+      "configuracion": "V1 + pool de hilos reutilizables",
+      "tareas": 900,
+      "fallidas": 0,
+      "throughput": 154.9,
+      "p50": 784.4,
+      "p95": 967.7,
+      "p99": 980.7
+    },
+    {
+      "configuracion": "V2 + menor carga y contrapresión (2 tareas/hilo)",
+      "tareas": 900,
+      "fallidas": 0,
+      "throughput": 160.1,
+      "p50": 795.1,
+      "p95": 832.5,
+      "p99": 840.8
+    }
+  ]
+}
