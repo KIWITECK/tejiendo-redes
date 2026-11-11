@@ -1,0 +1,66 @@
+<template>
+  <style>
+  #root { position: absolute; inset: 0; background: #FFFFFF; font-family: Inter, sans-serif; color: #2F3137; overflow: hidden; }
+  .wrap { position: absolute; inset: 0; }
+  .ttl { position: absolute; left: 120px; top: 54px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .abs { position: absolute; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .soft { color: #60646D; }
+  .hl-blue { background: linear-gradient(transparent 58%, #CFE3F5 58%); padding: 0 6px; }
+  .hl-mint { background: linear-gradient(transparent 58%, #CBEBDC 58%); padding: 0 6px; }
+  .hl-lilac { background: linear-gradient(transparent 58%, #DDD2F2 58%); padding: 0 6px; }
+  .hl-peach { background: linear-gradient(transparent 58%, #FAD9C6 58%); padding: 0 6px; }
+  .hl-rose { background: linear-gradient(transparent 58%, #F7CFD9 58%); padding: 0 6px; }
+  .hl-butter { background: linear-gradient(transparent 58%, #F6EBB5 58%); padding: 0 6px; }
+  .panel { background: #F7F7F8; border: 1.5px solid #D5D6DB; border-radius: 16px; }
+</style>
+  <div id="root" data-composition-id="terminal" data-width="1920" data-height="1080">
+    <div class="wrap" id="terminal-wrap">
+     <div class="wrap" id="terminal-zoom">
+      <div class="ttl" id="terminal-ttl">Ejecución real</div>
+      
+    <div class="abs panel mono" data-part="demo-cmd" style="left:120px; top:150px; width:1680px; height:400px"></div>
+    <div class="abs mono" data-part="demo-cmd" style="left:156px; top:172px; font-size:28px; line-height:36px; color:#6A52B3">$ npm run demo</div>
+    <div class="abs mono" data-part="demo-out" style="left:156px; top:208px; font-size:28px; line-height:36px; white-space:pre">Tareas OK: 60/60 · 297.1 tareas/s · p50 32 ms · p95 46 ms
+┌─────────┬──────────┬─────────┬──────────┬──────────┬──────┐
+│ (index) │ id       │ threads │ inflight │ capacity │ done │
+├─────────┼──────────┼─────────┼──────────┼──────────┼──────┤
+│ 0       │ 'nodo-1' │ 2       │ 0        │ 4        │ 20   │
+│ 1       │ 'nodo-2' │ 2       │ 0        │ 4        │ 21   │
+│ 2       │ 'nodo-3' │ 2       │ 0        │ 4        │ 19   │
+└─────────┴──────────┴─────────┴──────────┴──────────┴──────┘</div>
+    <div class="abs panel" data-part="test-cmd" style="left:120px; top:560px; width:1680px; height:416px"></div>
+    <div class="abs mono" data-part="test-cmd" style="left:156px; top:582px; font-size:28px; line-height:36px; color:#6A52B3">$ npm test</div>
+    <div class="abs mono" data-part="test-out" style="left:156px; top:618px; font-size:28px; line-height:36px; white-space:pre"><span style="color:#3E9A78">✔</span> el clúster completa todas las tareas y reparte entre nodos
+<span style="color:#3E9A78">✔</span> la caída de un nodo no pierde tareas (reasignación)
+<span style="color:#3E9A78">✔</span> un nodo mudo es expulsado por heartbeat vencido y su tarea se reasigna
+<span style="color:#3E9A78">✔</span> una tarea inválida falla tras agotar reintentos sin tumbar el clúster
+<span style="color:#3E9A78">✔</span> leastLoaded elige el nodo con menor ocupación relativa
+<span style="color:#3E9A78">✔</span> ninguna estrategia elige un nodo sin cupo
+<span style="color:#3E9A78">✔</span> roundRobin rota y salta nodos llenos
+<span style="color:#3E9A78">✔</span> EventBus notifica a observadores específicos y comodín, y aísla errores
+ℹ 8 pruebas · 8 pasan · 0 fallan</div>
+    <div class="abs" data-part="bug" style="left:120px; top:150px; width:1680px; height:400px; background:#FFFFFF; display:flex; align-items:center"><div style="font-size:54px; font-weight:700; letter-spacing:-0.02em; line-height:1.25"><span class="hl-rose">Defecto real hallado por una prueba:</span><br/>una tarea inválida destruía el hilo<br/>y dejaba el pool sin capacidad.</div></div>
+     </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+  tl.fromTo('#terminal-wrap', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+  tl.fromTo('#terminal-ttl', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.to('#terminal-wrap', { opacity: 0, duration: 0.45, ease: 'power2.in' }, 30.860);
+    
+  const root = '#terminal-wrap';
+  tl.set(root + ' [data-part]', { opacity: 0 }, 0);
+  const cues = [{"t":0.8,"parts":["demo-cmd"]},{"t":6.58,"parts":["demo-out"]},{"t":11.97,"parts":["test-cmd","test-out"]},{"t":21.23,"parts":["bug"]}];
+  cues.forEach((c) => c.parts.forEach((p, i) => {
+    tl.fromTo(root + ' [data-part="' + p + '"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, c.t + i * 0.2);
+  }));
+    tl.fromTo('#terminal-zoom', { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.035, duration: 31.31, ease: 'none' }, 0);
+    
+    tl.to('#terminal-wrap [data-part="demo-cmd"], #terminal-wrap [data-part="demo-out"]', { opacity: 0, duration: 0.5 }, 21.23 - 0.2);
+         tl.to('#terminal-wrap [data-part="test-cmd"], #terminal-wrap [data-part="test-out"]', { opacity: 0, duration: 0.5 }, 21.23 - 0.2);
+    window.__timelines["terminal"] = tl;
+  </script>
+</template>

@@ -1,0 +1,52 @@
+<template>
+  <style>
+  #root { position: absolute; inset: 0; background: #FFFFFF; font-family: Inter, sans-serif; color: #2F3137; overflow: hidden; }
+  .wrap { position: absolute; inset: 0; }
+  .ttl { position: absolute; left: 120px; top: 54px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .abs { position: absolute; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .soft { color: #60646D; }
+  .hl-blue { background: linear-gradient(transparent 58%, #CFE3F5 58%); padding: 0 6px; }
+  .hl-mint { background: linear-gradient(transparent 58%, #CBEBDC 58%); padding: 0 6px; }
+  .hl-lilac { background: linear-gradient(transparent 58%, #DDD2F2 58%); padding: 0 6px; }
+  .hl-peach { background: linear-gradient(transparent 58%, #FAD9C6 58%); padding: 0 6px; }
+  .hl-rose { background: linear-gradient(transparent 58%, #F7CFD9 58%); padding: 0 6px; }
+  .hl-butter { background: linear-gradient(transparent 58%, #F6EBB5 58%); padding: 0 6px; }
+  .panel { background: #F7F7F8; border: 1.5px solid #D5D6DB; border-radius: 16px; }
+</style>
+  <div id="root" data-composition-id="objetivo" data-width="1920" data-height="1080">
+    <div class="wrap" id="objetivo-wrap">
+     <div class="wrap" id="objetivo-zoom">
+      <div class="ttl" id="objetivo-ttl">El problema</div>
+      
+    <div class="abs" data-part="l1" style="left:120px; top:170px; font-size:118px; font-weight:800; letter-spacing:-0.04em; line-height:1"><span class="hl-blue">Muchos nodos</span></div>
+    <div class="abs" data-part="l2" style="left:120px; top:310px; font-size:118px; font-weight:800; letter-spacing:-0.04em; line-height:1"><span class="hl-mint">Muchos hilos</span></div>
+    <div class="abs" data-part="q1" style="left:120px; top:520px; font-size:42px; font-weight:500">¿Cómo se comunican las piezas?</div>
+    <div class="abs" data-part="q2" style="left:120px; top:600px; font-size:42px; font-weight:500">¿Quién coordina?</div>
+    <div class="abs" data-part="q3" style="left:120px; top:680px; font-size:42px; font-weight:500">¿Qué pasa cuando un nodo falla?</div>
+    <div class="abs" data-part="o1" style="left:1130px; top:170px; font-size:92px; font-weight:800; letter-spacing:-0.03em"><span class="hl-lilac">Diseñar</span><div class="soft" style="font-size:34px; font-weight:500; margin-top:6px">la arquitectura distribuida</div></div>
+    <div class="abs" data-part="o2" style="left:1130px; top:370px; font-size:92px; font-weight:800; letter-spacing:-0.03em"><span class="hl-peach">Modelar</span><div class="soft" style="font-size:34px; font-weight:500; margin-top:6px">con diagramas UML y patrones</div></div>
+    <div class="abs" data-part="o3" style="left:1130px; top:570px; font-size:92px; font-weight:800; letter-spacing:-0.03em"><span class="hl-rose">Evaluar</span><div class="soft" style="font-size:34px; font-weight:500; margin-top:6px">con un prototipo medible</div></div>
+    <div class="abs" data-part="idea" style="left:120px; top:880px; font-size:54px; font-weight:700; letter-spacing:-0.02em"><span class="hl-butter">Decidir con criterios verificables, no por intuición.</span></div>
+     </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+  tl.fromTo('#objetivo-wrap', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+  tl.fromTo('#objetivo-ttl', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.to('#objetivo-wrap', { opacity: 0, duration: 0.45, ease: 'power2.in' }, 40.430);
+    
+  const root = '#objetivo-wrap';
+  tl.set(root + ' [data-part]', { opacity: 0 }, 0);
+  const cues = [{"t":0.8,"parts":["l1","l2"]},{"t":10.63,"parts":["q1","q2","q3"]},{"t":17.59,"parts":["o1","o2","o3"]},{"t":27,"parts":["idea"]},{"t":32.07,"parts":[]}];
+  cues.forEach((c) => c.parts.forEach((p, i) => {
+    tl.fromTo(root + ' [data-part="' + p + '"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, c.t + i * 0.2);
+  }));
+    tl.fromTo('#objetivo-zoom', { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.035, duration: 40.88, ease: 'none' }, 0);
+    
+    
+    window.__timelines["objetivo"] = tl;
+  </script>
+</template>

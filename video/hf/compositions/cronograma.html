@@ -1,0 +1,43 @@
+<template>
+  <style>
+  #root { position: absolute; inset: 0; background: #FFFFFF; font-family: Inter, sans-serif; color: #2F3137; overflow: hidden; }
+  .wrap { position: absolute; inset: 0; }
+  .ttl { position: absolute; left: 120px; top: 54px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .abs { position: absolute; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .soft { color: #60646D; }
+  .hl-blue { background: linear-gradient(transparent 58%, #CFE3F5 58%); padding: 0 6px; }
+  .hl-mint { background: linear-gradient(transparent 58%, #CBEBDC 58%); padding: 0 6px; }
+  .hl-lilac { background: linear-gradient(transparent 58%, #DDD2F2 58%); padding: 0 6px; }
+  .hl-peach { background: linear-gradient(transparent 58%, #FAD9C6 58%); padding: 0 6px; }
+  .hl-rose { background: linear-gradient(transparent 58%, #F7CFD9 58%); padding: 0 6px; }
+  .hl-butter { background: linear-gradient(transparent 58%, #F6EBB5 58%); padding: 0 6px; }
+  .panel { background: #F7F7F8; border: 1.5px solid #D5D6DB; border-radius: 16px; }
+</style>
+  <div id="root" data-composition-id="cronograma" data-width="1920" data-height="1080">
+    <div class="wrap" id="cronograma-wrap">
+     <div class="wrap" id="cronograma-zoom">
+      <div class="ttl" id="cronograma-ttl">Planificación</div>
+      <div class="abs" style="left:120px; top:170px; width:1680px"><svg width="1680" viewBox="0 0 624 256" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cronograma del proyecto del 4 al 10 de noviembre de 2026" font-family="Arial, Helvetica, sans-serif"><defs><marker id="cronograma-ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#8A8E98" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><text x="243" y="22" font-size="10.5" text-anchor="middle" fill="#60646D">4 nov</text><line x1="214" y1="30" x2="214" y2="248" stroke="#E3E4E8" stroke-width="1"/><text x="301" y="22" font-size="10.5" text-anchor="middle" fill="#60646D">5 nov</text><line x1="272" y1="30" x2="272" y2="248" stroke="#E3E4E8" stroke-width="1"/><text x="359" y="22" font-size="10.5" text-anchor="middle" fill="#60646D">6 nov</text><line x1="330" y1="30" x2="330" y2="248" stroke="#E3E4E8" stroke-width="1"/><text x="417" y="22" font-size="10.5" text-anchor="middle" fill="#60646D">7 nov</text><line x1="388" y1="30" x2="388" y2="248" stroke="#E3E4E8" stroke-width="1"/><text x="475" y="22" font-size="10.5" text-anchor="middle" fill="#60646D">8 nov</text><line x1="446" y1="30" x2="446" y2="248" stroke="#E3E4E8" stroke-width="1"/><text x="533" y="22" font-size="10.5" text-anchor="middle" fill="#60646D">9 nov</text><line x1="504" y1="30" x2="504" y2="248" stroke="#E3E4E8" stroke-width="1"/><text x="591" y="22" font-size="10.5" text-anchor="middle" fill="#60646D">10 nov</text><line x1="562" y1="30" x2="562" y2="248" stroke="#E3E4E8" stroke-width="1"/><line x1="620" y1="30" x2="620" y2="248" stroke="#E3E4E8" stroke-width="1"/><line x1="10" y1="30" x2="614" y2="30" stroke="#D5D6DB" stroke-width="1"/><g class="part" data-part="r0"><text x="10" y="53" font-size="11" text-anchor="start" fill="#2F3137">Análisis de requisitos y plan</text><rect x="216" y="40" width="54" height="18" rx="9" fill="#EEF5FB" stroke="#8DB7DD" stroke-width="1.2"/></g><g class="part" data-part="r1"><text x="10" y="83" font-size="11" text-anchor="start" fill="#2F3137">Modelado UML y patrones</text><rect x="245" y="70" width="112" height="18" rx="9" fill="#F3EEFB" stroke="#AE9BD9" stroke-width="1.2"/></g><g class="part" data-part="r2"><text x="10" y="113" font-size="11" text-anchor="start" fill="#2F3137">Implementación del prototipo</text><rect x="332" y="100" width="141" height="18" rx="9" fill="#EBF7F1" stroke="#82C7A9" stroke-width="1.2"/></g><g class="part" data-part="r3"><text x="10" y="143" font-size="11" text-anchor="start" fill="#2F3137">Pruebas de escalabilidad y robustez</text><rect x="448" y="130" width="83" height="18" rx="9" fill="#FEF2EA" stroke="#EBA783" stroke-width="1.2"/></g><g class="part" data-part="r4"><text x="10" y="173" font-size="11" text-anchor="start" fill="#2F3137">Ajustes y optimización</text><rect x="506" y="160" width="54" height="18" rx="9" fill="#FCF8E6" stroke="#D9C26C" stroke-width="1.2"/></g><g class="part" data-part="r5"><text x="10" y="203" font-size="11" text-anchor="start" fill="#2F3137">Informe técnico (PDF)</text><rect x="506" y="190" width="112" height="18" rx="9" fill="#FDEFF2" stroke="#E39EB0" stroke-width="1.2"/></g><g class="part" data-part="r6"><text x="10" y="233" font-size="11" text-anchor="start" fill="#2F3137">Video de presentación</text><rect x="564" y="220" width="54" height="18" rx="9" fill="#EEF5FB" stroke="#8DB7DD" stroke-width="1.2"/></g><line x1="10" y1="248" x2="614" y2="248" stroke="#D5D6DB" stroke-width="1"/></svg></div>
+     </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+  tl.fromTo('#cronograma-wrap', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+  tl.fromTo('#cronograma-ttl', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.to('#cronograma-wrap', { opacity: 0, duration: 0.45, ease: 'power2.in' }, 22.880);
+    
+  const root = '#cronograma-wrap';
+  tl.set(root + ' [data-part]', { opacity: 0 }, 0);
+  const cues = [{"t":0.8,"parts":["r0"]},{"t":7.3,"parts":["r1","r2"]},{"t":16.529999999999998,"parts":["r3","r4","r5","r6"]}];
+  cues.forEach((c) => c.parts.forEach((p, i) => {
+    tl.fromTo(root + ' [data-part="' + p + '"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, c.t + i * 0.2);
+  }));
+    tl.fromTo('#cronograma-zoom', { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.035, duration: 23.33, ease: 'none' }, 0);
+    
+    
+    window.__timelines["cronograma"] = tl;
+  </script>
+</template>

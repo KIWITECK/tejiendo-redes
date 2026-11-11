@@ -1,0 +1,11 @@
+✔ el clúster completa todas las tareas y reparte entre nodos (151.695708ms)
+✔ la caída de un nodo no pierde tareas (reasignación) (462.659167ms)
+✔ un nodo mudo es expulsado por heartbeat vencido y su tarea se reasigna (1016.506708ms)
+✔ una tarea inválida falla tras agotar reintentos sin tumbar el clúster (95.017417ms)
+✔ leastLoaded elige el nodo con menor ocupación relativa (0.729458ms)
+✔ ninguna estrategia elige un nodo sin cupo (0.081792ms)
+✔ roundRobin rota y salta nodos llenos (0.898667ms)
+✔ EventBus notifica a observadores específicos y comodín, y aísla errores (0.146208ms)
+ℹ tests 8
+ℹ pass 8
+ℹ fail 0

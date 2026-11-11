@@ -1,0 +1,47 @@
+<template>
+  <style>
+  #root { position: absolute; inset: 0; background: #FFFFFF; font-family: Inter, sans-serif; color: #2F3137; overflow: hidden; }
+  .wrap { position: absolute; inset: 0; }
+  .ttl { position: absolute; left: 120px; top: 54px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .abs { position: absolute; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .soft { color: #60646D; }
+  .hl-blue { background: linear-gradient(transparent 58%, #CFE3F5 58%); padding: 0 6px; }
+  .hl-mint { background: linear-gradient(transparent 58%, #CBEBDC 58%); padding: 0 6px; }
+  .hl-lilac { background: linear-gradient(transparent 58%, #DDD2F2 58%); padding: 0 6px; }
+  .hl-peach { background: linear-gradient(transparent 58%, #FAD9C6 58%); padding: 0 6px; }
+  .hl-rose { background: linear-gradient(transparent 58%, #F7CFD9 58%); padding: 0 6px; }
+  .hl-butter { background: linear-gradient(transparent 58%, #F6EBB5 58%); padding: 0 6px; }
+  .panel { background: #F7F7F8; border: 1.5px solid #D5D6DB; border-radius: 16px; }
+</style>
+  <div id="root" data-composition-id="cierre" data-width="1920" data-height="1080">
+    <div class="wrap" id="cierre-wrap">
+     <div class="wrap" id="cierre-zoom">
+      <div class="ttl" id="cierre-ttl">Conclusiones</div>
+      
+    <div class="abs" data-part="k1" style="left:120px; top:190px; width:1680px; font-size:56px; font-weight:700; letter-spacing:-0.02em; line-height:1.25"><span class="hl-lilac">Los diagramas describen lo que el prototipo hace;</span><br/><span class="hl-lilac">los patrones resolvieron problemas medibles.</span></div>
+    <div class="abs" data-part="k2" style="left:120px; top:420px; width:1680px; font-size:56px; font-weight:700; letter-spacing:-0.02em; line-height:1.25"><span class="hl-mint">Escala ×2,72 con 4 nodos, tolera la caída de un nodo,</span><br/><span class="hl-mint">y mejoró 37 % su latencia midiendo, no adivinando.</span></div>
+    <div class="abs" data-part="k3" style="left:120px; top:650px; width:1680px; font-size:44px; font-weight:500; line-height:1.3; color:#4A4E57">Futuro: cola persistente · coordinador de respaldo con elección de líder · autenticación entre componentes · pruebas en varias máquinas.</div>
+    <div class="abs mono" data-part="repo" style="left:120px; top:900px; font-size:46px; font-weight:700"><span class="hl-blue">github.com/KIWITECK/tejiendo-redes</span></div>
+     </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+  tl.fromTo('#cierre-wrap', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+  tl.fromTo('#cierre-ttl', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.to('#cierre-wrap', { opacity: 0, duration: 0.45, ease: 'power2.in' }, 46.420);
+    
+  const root = '#cierre-wrap';
+  tl.set(root + ' [data-part]', { opacity: 0 }, 0);
+  const cues = [{"t":0.8,"parts":["k1"]},{"t":11.14,"parts":["k2"]},{"t":24.68,"parts":["k3"]},{"t":36.51,"parts":["repo"]}];
+  cues.forEach((c) => c.parts.forEach((p, i) => {
+    tl.fromTo(root + ' [data-part="' + p + '"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, c.t + i * 0.2);
+  }));
+    tl.fromTo('#cierre-zoom', { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.035, duration: 46.87, ease: 'none' }, 0);
+    
+    
+    window.__timelines["cierre"] = tl;
+  </script>
+</template>

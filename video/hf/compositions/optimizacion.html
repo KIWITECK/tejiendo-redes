@@ -1,0 +1,43 @@
+<template>
+  <style>
+  #root { position: absolute; inset: 0; background: #FFFFFF; font-family: Inter, sans-serif; color: #2F3137; overflow: hidden; }
+  .wrap { position: absolute; inset: 0; }
+  .ttl { position: absolute; left: 120px; top: 54px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .abs { position: absolute; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .soft { color: #60646D; }
+  .hl-blue { background: linear-gradient(transparent 58%, #CFE3F5 58%); padding: 0 6px; }
+  .hl-mint { background: linear-gradient(transparent 58%, #CBEBDC 58%); padding: 0 6px; }
+  .hl-lilac { background: linear-gradient(transparent 58%, #DDD2F2 58%); padding: 0 6px; }
+  .hl-peach { background: linear-gradient(transparent 58%, #FAD9C6 58%); padding: 0 6px; }
+  .hl-rose { background: linear-gradient(transparent 58%, #F7CFD9 58%); padding: 0 6px; }
+  .hl-butter { background: linear-gradient(transparent 58%, #F6EBB5 58%); padding: 0 6px; }
+  .panel { background: #F7F7F8; border: 1.5px solid #D5D6DB; border-radius: 16px; }
+</style>
+  <div id="root" data-composition-id="optimizacion" data-width="1920" data-height="1080">
+    <div class="wrap" id="optimizacion-wrap">
+     <div class="wrap" id="optimizacion-zoom">
+      <div class="ttl" id="optimizacion-ttl">Cuellos de botella y ajustes</div>
+      <div class="abs" style="left:120px; top:170px; width:1680px"><svg width="1680" viewBox="0 0 624 210" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparación de las versiones V0, V1 y V2" font-family="Arial, Helvetica, sans-serif"><defs><marker id="optimizacion-ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#8A8E98" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><g class="part" data-part="titles"><text x="10" y="16" font-size="11" text-anchor="start" font-weight="700" fill="#2F3137">Rendimiento</text><text x="10" y="30" font-size="10" text-anchor="start" font-style="italic" fill="#60646D">mayor es mejor</text></g><g class="part" data-part="v0"><rect x="10" y="44" width="173.79762648344786" height="18" rx="9" fill="#FDEFF2" stroke="#E39EB0" stroke-width="1.2"/><text x="191.79762648344786" y="57" font-size="10.5" text-anchor="start" font-weight="700" fill="#2F3137">132,5 tareas/s</text><text x="10" y="77" font-size="10" text-anchor="start" fill="#60646D">referencia</text></g><g class="part" data-part="v1"><rect x="10" y="88" width="203.17926296064962" height="18" rx="9" fill="#FCF8E6" stroke="#D9C26C" stroke-width="1.2"/><text x="221.17926296064962" y="101" font-size="10.5" text-anchor="start" font-weight="700" fill="#2F3137">154,9 tareas/s</text><text x="10" y="121" font-size="10" text-anchor="start" fill="#60646D">+17 % frente a V0</text></g><g class="part" data-part="v2"><rect x="10" y="132" width="210" height="18" rx="9" fill="#EBF7F1" stroke="#82C7A9" stroke-width="1.2"/><text x="228" y="145" font-size="10.5" text-anchor="start" font-weight="700" fill="#2F3137">160,1 tareas/s</text><text x="10" y="165" font-size="10" text-anchor="start" fill="#60646D">+21 % frente a V0</text></g><g class="part" data-part="titles"><text x="330" y="16" font-size="11" text-anchor="start" font-weight="700" fill="#2F3137">Latencia p95</text><text x="330" y="30" font-size="10" text-anchor="start" font-style="italic" fill="#60646D">menor es mejor</text></g><g class="part" data-part="v0"><rect x="330" y="44" width="210" height="18" rx="9" fill="#FDEFF2" stroke="#E39EB0" stroke-width="1.2"/><text x="548" y="57" font-size="10.5" text-anchor="start" font-weight="700" fill="#2F3137">1321 ms</text><text x="330" y="77" font-size="10" text-anchor="start" fill="#60646D">referencia</text></g><g class="part" data-part="v1"><rect x="330" y="88" width="153.800802240218" height="18" rx="9" fill="#FCF8E6" stroke="#D9C26C" stroke-width="1.2"/><text x="491.800802240218" y="101" font-size="10.5" text-anchor="start" font-weight="700" fill="#2F3137">968 ms</text><text x="330" y="121" font-size="10" text-anchor="start" fill="#60646D">−27 % frente a V0</text></g><g class="part" data-part="v2"><rect x="330" y="132" width="132.3128736850072" height="18" rx="9" fill="#EBF7F1" stroke="#82C7A9" stroke-width="1.2"/><text x="470.31287368500716" y="145" font-size="10.5" text-anchor="start" font-weight="700" fill="#2F3137">833 ms</text><text x="330" y="165" font-size="10" text-anchor="start" fill="#60646D">−37 % frente a V0</text></g><g class="part" data-part="leg"><rect x="10" y="190" width="14" height="10" rx="5" fill="#FDEFF2" stroke="#E39EB0" stroke-width="1.2"/><text x="30" y="199" font-size="10" text-anchor="start" fill="#2F3137">V0 · línea base</text><rect x="218" y="190" width="14" height="10" rx="5" fill="#FCF8E6" stroke="#D9C26C" stroke-width="1.2"/><text x="238" y="199" font-size="10" text-anchor="start" fill="#2F3137">V1 · + pool de hilos</text><rect x="426" y="190" width="14" height="10" rx="5" fill="#EBF7F1" stroke="#82C7A9" stroke-width="1.2"/><text x="446" y="199" font-size="10" text-anchor="start" fill="#2F3137">V2 · + menor carga y contrapresión</text></g></svg></div>
+     </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+  tl.fromTo('#optimizacion-wrap', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+  tl.fromTo('#optimizacion-ttl', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.to('#optimizacion-wrap', { opacity: 0, duration: 0.45, ease: 'power2.in' }, 54.510);
+    
+  const root = '#optimizacion-wrap';
+  tl.set(root + ' [data-part]', { opacity: 0 }, 0);
+  const cues = [{"t":0.8,"parts":["titles","v0"]},{"t":7.64,"parts":[]},{"t":18.599999999999998,"parts":["v1"]},{"t":25.72,"parts":["v2"]},{"t":34.31,"parts":["leg"]},{"t":45.13,"parts":[]}];
+  cues.forEach((c) => c.parts.forEach((p, i) => {
+    tl.fromTo(root + ' [data-part="' + p + '"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, c.t + i * 0.2);
+  }));
+    tl.fromTo('#optimizacion-zoom', { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.035, duration: 54.96, ease: 'none' }, 0);
+    
+    
+    window.__timelines["optimizacion"] = tl;
+  </script>
+</template>

@@ -1,2 +1,9 @@
 node_modules/
 .DS_Store
+video/audio/*.wav
+video/out/
+video/hf/.hyperframes/
+video/hf/assets/narration.wav
+video/hf/renders/
+video/*.log
+video/hf/node_modules/

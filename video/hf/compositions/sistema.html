@@ -1,0 +1,43 @@
+<template>
+  <style>
+  #root { position: absolute; inset: 0; background: #FFFFFF; font-family: Inter, sans-serif; color: #2F3137; overflow: hidden; }
+  .wrap { position: absolute; inset: 0; }
+  .ttl { position: absolute; left: 120px; top: 54px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .abs { position: absolute; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .soft { color: #60646D; }
+  .hl-blue { background: linear-gradient(transparent 58%, #CFE3F5 58%); padding: 0 6px; }
+  .hl-mint { background: linear-gradient(transparent 58%, #CBEBDC 58%); padding: 0 6px; }
+  .hl-lilac { background: linear-gradient(transparent 58%, #DDD2F2 58%); padding: 0 6px; }
+  .hl-peach { background: linear-gradient(transparent 58%, #FAD9C6 58%); padding: 0 6px; }
+  .hl-rose { background: linear-gradient(transparent 58%, #F7CFD9 58%); padding: 0 6px; }
+  .hl-butter { background: linear-gradient(transparent 58%, #F6EBB5 58%); padding: 0 6px; }
+  .panel { background: #F7F7F8; border: 1.5px solid #D5D6DB; border-radius: 16px; }
+</style>
+  <div id="root" data-composition-id="sistema" data-width="1920" data-height="1080">
+    <div class="wrap" id="sistema-wrap">
+     <div class="wrap" id="sistema-zoom">
+      <div class="ttl" id="sistema-ttl">El sistema elegido</div>
+      <div class="abs" style="left:120px; top:170px; width:1680px"><svg width="1680" viewBox="0 0 624 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mapa conceptual del sistema distribuido" font-family="Arial, Helvetica, sans-serif"><defs><marker id="sistema-ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#8A8E98" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><g class="part" data-part="cliente"><rect x="20" y="30" width="90" height="46" rx="7" fill="#EEF5FB" stroke="#8DB7DD" stroke-width="1.1"/><text x="65" y="48.5" font-size="11" text-anchor="middle" font-weight="700" fill="#2F3137">Cliente</text><text x="65" y="63" font-size="10.5" text-anchor="middle" fill="#60646D">HTTP / JSON</text></g><g class="part" data-part="coord"><path d="M110 53 H173" fill="none" stroke="#8A8E98" stroke-width="1.1" marker-end="url(#sistema-ar)"/><text x="142" y="46" font-size="10" text-anchor="middle" fill="#60646D" stroke="#fff" stroke-width="3.5" stroke-linejoin="round" paint-order="stroke">POST /jobs</text><rect x="175" y="30" width="130" height="46" rx="7" fill="#F3EEFB" stroke="#AE9BD9" stroke-width="1.1"/><text x="240" y="48.5" font-size="11" text-anchor="middle" font-weight="700" fill="#2F3137">Coordinador</text><text x="240" y="63" font-size="10.5" text-anchor="middle" fill="#60646D">Proxy + Mediator</text></g><g class="part" data-part="nodos"><path d="M305 53 H383" fill="none" stroke="#8A8E98" stroke-width="1.1" marker-end="url(#sistema-ar)"/><text x="344" y="46" font-size="10" text-anchor="middle" fill="#60646D" stroke="#fff" stroke-width="3.5" stroke-linejoin="round" paint-order="stroke">TCP · NDJSON</text><rect x="385" y="30" width="90" height="46" rx="7" fill="#EBF7F1" stroke="#82C7A9" stroke-width="1.1"/><text x="430" y="48.5" font-size="11" text-anchor="middle" font-weight="700" fill="#2F3137">Nodos 1…N</text><text x="430" y="63" font-size="10.5" text-anchor="middle" fill="#60646D">procesos Node.js</text></g><g class="part" data-part="pool"><path d="M475 53 H518" fill="none" stroke="#8A8E98" stroke-width="1.1" marker-end="url(#sistema-ar)"/><text x="497" y="46" font-size="10" text-anchor="middle" fill="#60646D" stroke="#fff" stroke-width="3.5" stroke-linejoin="round" paint-order="stroke">ejecutan</text><rect x="520" y="30" width="84" height="46" rx="7" fill="#FEF2EA" stroke="#EBA783" stroke-width="1.1"/><text x="562" y="48.5" font-size="11" text-anchor="middle" font-weight="700" fill="#2F3137">Pool</text><text x="562" y="63" font-size="10.5" text-anchor="middle" fill="#60646D">de hilos</text></g><g class="part" data-part="nunca"><text x="560" y="168" font-size="10" text-anchor="middle" font-style="italic" fill="#60646D">Los nodos nunca</text><text x="560" y="181" font-size="10" text-anchor="middle" font-style="italic" fill="#60646D">se hablan entre sí</text></g><g class="part" data-part="bus"><path d="M240 76 V138" fill="none" stroke="#8A8E98" stroke-width="1.1" marker-end="url(#sistema-ar)"/><text x="247" y="112" font-size="10" text-anchor="start" fill="#60646D" stroke="#fff" stroke-width="3.5" stroke-linejoin="round" paint-order="stroke">publica eventos</text><rect x="175" y="140" width="130" height="46" rx="7" fill="#FCF8E6" stroke="#D9C26C" stroke-width="1.1"/><text x="240" y="158.5" font-size="11" text-anchor="middle" font-weight="700" fill="#2F3137">Bus de eventos</text><text x="240" y="173" font-size="10.5" text-anchor="middle" fill="#60646D">Observer</text></g><g class="part" data-part="obs"><rect x="78" y="226" width="100" height="34" rx="7" fill="#F7F7F8" stroke="#B8B8BE" stroke-width="1.1"/><text x="128" y="245.75" font-size="10.5" text-anchor="middle" fill="#60646D">Métricas</text><rect x="190" y="226" width="100" height="34" rx="7" fill="#F7F7F8" stroke="#B8B8BE" stroke-width="1.1"/><text x="240" y="245.75" font-size="10.5" text-anchor="middle" fill="#60646D">Trazas</text><rect x="302" y="226" width="100" height="34" rx="7" fill="#F7F7F8" stroke="#B8B8BE" stroke-width="1.1"/><text x="352" y="245.75" font-size="10.5" text-anchor="middle" fill="#60646D">SSE /events</text><path d="M240 186 L128 224" fill="none" stroke="#8A8E98" stroke-width="1.1" marker-end="url(#sistema-ar)"/><path d="M240 186 L240 224" fill="none" stroke="#8A8E98" stroke-width="1.1" marker-end="url(#sistema-ar)"/><path d="M240 186 L352 224" fill="none" stroke="#8A8E98" stroke-width="1.1" marker-end="url(#sistema-ar)"/></g><g class="part" data-part="estrategia"><path d="M290 76 V96 H450 V138" fill="none" stroke="#8A8E98" stroke-width="1.1" marker-end="url(#sistema-ar)"/><text x="372" y="90" font-size="10" text-anchor="middle" fill="#60646D" stroke="#fff" stroke-width="3.5" stroke-linejoin="round" paint-order="stroke">elige el nodo</text><rect x="385" y="140" width="130" height="46" rx="7" fill="#FDEFF2" stroke="#E39EB0" stroke-width="1.1"/><text x="450" y="158.5" font-size="11" text-anchor="middle" font-weight="700" fill="#2F3137">Estrategia</text><text x="450" y="173" font-size="10.5" text-anchor="middle" fill="#60646D">leastLoaded · roundRobin</text></g></svg></div>
+     </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+  tl.fromTo('#sistema-wrap', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+  tl.fromTo('#sistema-ttl', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.to('#sistema-wrap', { opacity: 0, duration: 0.45, ease: 'power2.in' }, 61.830);
+    
+  const root = '#sistema-wrap';
+  tl.set(root + ' [data-part]', { opacity: 0 }, 0);
+  const cues = [{"t":0.8,"parts":[]},{"t":7.97,"parts":["cliente","coord"]},{"t":12.08,"parts":["nodos"]},{"t":17.69,"parts":["pool"]},{"t":22.42,"parts":["nunca"]},{"t":27.990000000000002,"parts":["bus"]},{"t":35.63,"parts":["obs"]},{"t":42.010000000000005,"parts":["estrategia"]},{"t":50.050000000000004,"parts":[]}];
+  cues.forEach((c) => c.parts.forEach((p, i) => {
+    tl.fromTo(root + ' [data-part="' + p + '"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, c.t + i * 0.2);
+  }));
+    tl.fromTo('#sistema-zoom', { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.035, duration: 62.28, ease: 'none' }, 0);
+    
+    
+    window.__timelines["sistema"] = tl;
+  </script>
+</template>

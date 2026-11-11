@@ -1,0 +1,45 @@
+<template>
+  <style>
+  #root { position: absolute; inset: 0; background: #FFFFFF; font-family: Inter, sans-serif; color: #2F3137; overflow: hidden; }
+  .wrap { position: absolute; inset: 0; }
+  .ttl { position: absolute; left: 120px; top: 54px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .abs { position: absolute; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .soft { color: #60646D; }
+  .hl-blue { background: linear-gradient(transparent 58%, #CFE3F5 58%); padding: 0 6px; }
+  .hl-mint { background: linear-gradient(transparent 58%, #CBEBDC 58%); padding: 0 6px; }
+  .hl-lilac { background: linear-gradient(transparent 58%, #DDD2F2 58%); padding: 0 6px; }
+  .hl-peach { background: linear-gradient(transparent 58%, #FAD9C6 58%); padding: 0 6px; }
+  .hl-rose { background: linear-gradient(transparent 58%, #F7CFD9 58%); padding: 0 6px; }
+  .hl-butter { background: linear-gradient(transparent 58%, #F6EBB5 58%); padding: 0 6px; }
+  .panel { background: #F7F7F8; border: 1.5px solid #D5D6DB; border-radius: 16px; }
+</style>
+  <div id="root" data-composition-id="resumen" data-width="1920" data-height="1080">
+    <div class="wrap" id="resumen-wrap">
+     <div class="wrap" id="resumen-zoom">
+      <div class="ttl" id="resumen-ttl">¿Se cumplieron los requisitos?</div>
+      
+    <div class="abs" data-part="head" style="left:120px; top:170px; width:1680px; font-size:26px; font-weight:700; color:#60646D; display:flex"><div style="width:560px">REQUISITO</div><div style="width:560px">META</div><div style="width:480px">MEDIDO</div></div>
+    <div class="abs" data-part="rnf1" style="left:120px; top:232px; width:1680px; display:flex; align-items:center; font-size:35px; line-height:1.25"><div style="width:560px; font-weight:700; padding-right:30px">Escalabilidad</div><div style="width:560px; padding-right:30px" class="soft">Eficiencia ≥ 60 % con 4 nodos</div><div style="width:480px; font-weight:700; padding-right:20px"><span class="hl-mint">68 %</span></div><div style="width:80px; font-size:60px; color:#3E9A78; font-weight:700">✓</div></div><div class="abs" data-part="rnf2" style="left:120px; top:382px; width:1680px; display:flex; align-items:center; font-size:35px; line-height:1.25"><div style="width:560px; font-weight:700; padding-right:30px">Robustez</div><div style="width:560px; padding-right:30px" class="soft">0 tareas perdidas ante una caída</div><div style="width:480px; font-weight:700; padding-right:20px"><span class="hl-mint">900 de 900 completadas</span></div><div style="width:80px; font-size:60px; color:#3E9A78; font-weight:700">✓</div></div><div class="abs" data-part="rnf3" style="left:120px; top:532px; width:1680px; display:flex; align-items:center; font-size:35px; line-height:1.25"><div style="width:560px; font-weight:700; padding-right:30px">Eficiencia</div><div style="width:560px; padding-right:30px" class="soft">p95 ≤ 1 s con 128 clientes</div><div style="width:480px; font-weight:700; padding-right:20px"><span class="hl-mint">833 ms (base: 1.321 ms)</span></div><div style="width:80px; font-size:60px; color:#3E9A78; font-weight:700">✓</div></div><div class="abs" data-part="rnf4" style="left:120px; top:682px; width:1680px; display:flex; align-items:center; font-size:35px; line-height:1.25"><div style="width:560px; font-weight:700; padding-right:30px">Acoplamiento y observabilidad</div><div style="width:560px; padding-right:30px" class="soft">Nodos aislados; p50, p95, p99 y reparto</div><div style="width:480px; font-weight:700; padding-right:20px"><span class="hl-mint">Reportados en cada corrida</span></div><div style="width:80px; font-size:60px; color:#3E9A78; font-weight:700">✓</div></div><div class="abs" data-part="rf" style="left:120px; top:832px; width:1680px; display:flex; align-items:center; font-size:35px; line-height:1.25"><div style="width:560px; font-weight:700; padding-right:30px">Requisitos funcionales</div><div style="width:560px; padding-right:30px" class="soft">RF1 a RF5</div><div style="width:480px; font-weight:700; padding-right:20px"><span class="hl-mint">8 de 8 pruebas en verde</span></div><div style="width:80px; font-size:60px; color:#3E9A78; font-weight:700">✓</div></div>
+     </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+  tl.fromTo('#resumen-wrap', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+  tl.fromTo('#resumen-ttl', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.to('#resumen-wrap', { opacity: 0, duration: 0.45, ease: 'power2.in' }, 55.750);
+    
+  const root = '#resumen-wrap';
+  tl.set(root + ' [data-part]', { opacity: 0 }, 0);
+  const cues = [{"t":0.8,"parts":["head"]},{"t":5.44,"parts":["rnf1"]},{"t":14.16,"parts":["rnf2"]},{"t":22.7,"parts":["rnf3"]},{"t":39.89,"parts":["rnf4"]},{"t":49.47,"parts":["rf"]}];
+  cues.forEach((c) => c.parts.forEach((p, i) => {
+    tl.fromTo(root + ' [data-part="' + p + '"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, c.t + i * 0.2);
+  }));
+    tl.fromTo('#resumen-zoom', { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.035, duration: 56.20, ease: 'none' }, 0);
+    
+    
+    window.__timelines["resumen"] = tl;
+  </script>
+</template>

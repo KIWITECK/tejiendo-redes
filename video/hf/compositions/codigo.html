@@ -1,0 +1,62 @@
+<template>
+  <style>
+  #root { position: absolute; inset: 0; background: #FFFFFF; font-family: Inter, sans-serif; color: #2F3137; overflow: hidden; }
+  .wrap { position: absolute; inset: 0; }
+  .ttl { position: absolute; left: 120px; top: 54px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .abs { position: absolute; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .soft { color: #60646D; }
+  .hl-blue { background: linear-gradient(transparent 58%, #CFE3F5 58%); padding: 0 6px; }
+  .hl-mint { background: linear-gradient(transparent 58%, #CBEBDC 58%); padding: 0 6px; }
+  .hl-lilac { background: linear-gradient(transparent 58%, #DDD2F2 58%); padding: 0 6px; }
+  .hl-peach { background: linear-gradient(transparent 58%, #FAD9C6 58%); padding: 0 6px; }
+  .hl-rose { background: linear-gradient(transparent 58%, #F7CFD9 58%); padding: 0 6px; }
+  .hl-butter { background: linear-gradient(transparent 58%, #F6EBB5 58%); padding: 0 6px; }
+  .panel { background: #F7F7F8; border: 1.5px solid #D5D6DB; border-radius: 16px; }
+</style>
+  <div id="root" data-composition-id="codigo" data-width="1920" data-height="1080">
+    <div class="wrap" id="codigo-wrap">
+     <div class="wrap" id="codigo-zoom">
+      <div class="ttl" id="codigo-ttl">El prototipo</div>
+      
+    <div class="abs panel" data-part="code" style="left:120px; top:190px; width:1200px; height:610px"></div>
+    <div class="abs" data-part="l-pick" style="left:130px; top:320px; width:1180px; height:50px; background:#F6EBB5; border-radius:8px"></div>
+    <div class="abs" data-part="l-return" style="left:130px; top:370px; width:1180px; height:50px; background:#CBEBDC; border-radius:8px"></div>
+    <div class="abs mono" data-part="code" style="left:150px; top:220px; font-size:29px; line-height:50px; white-space:pre; color:#2F3137">#pump() {
+  while (this.queue.length) {
+    const target = this.strategy.pick(nodes);
+    if (!target) return;   // sin cupo: contrapresión
+    const job = this.queue.shift();
+    job.attempts++;
+    target.inflight++;
+    send(target.socket, { t: 'run', jobId: job.id,
+                          payload: job.payload });
+  }
+}</div>
+    <div class="abs" data-part="msgs" style="left:1380px; top:190px; width:420px">
+      <div style="font-size:28px; font-weight:700; color:#60646D; margin-bottom:12px">MENSAJES (NDJSON / TCP)</div>
+      <div style="margin-bottom:22px"><div class="mono" style="font-size:34px; font-weight:700; color:#6A52B3">register</div><div style="font-size:30px" class="soft">el nodo se anuncia</div></div><div style="margin-bottom:22px"><div class="mono" style="font-size:34px; font-weight:700; color:#6A52B3">hb</div><div style="font-size:30px" class="soft">latido cada 500 ms</div></div><div style="margin-bottom:22px"><div class="mono" style="font-size:34px; font-weight:700; color:#6A52B3">run</div><div style="font-size:30px" class="soft">el coordinador asigna</div></div><div style="margin-bottom:22px"><div class="mono" style="font-size:34px; font-weight:700; color:#6A52B3">result</div><div style="font-size:30px" class="soft">el nodo responde</div></div>
+    </div>
+    <div class="abs" data-part="pool" style="left:120px; top:840px; width:1680px; font-size:46px; font-weight:700; letter-spacing:-0.02em"><span class="hl-mint">Pool de hilos de tamaño fijo</span> · los errores de una tarea viajan como datos</div>
+     </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+  tl.fromTo('#codigo-wrap', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+  tl.fromTo('#codigo-ttl', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.to('#codigo-wrap', { opacity: 0, duration: 0.45, ease: 'power2.in' }, 38.150);
+    
+  const root = '#codigo-wrap';
+  tl.set(root + ' [data-part]', { opacity: 0 }, 0);
+  const cues = [{"t":0.8,"parts":[]},{"t":6.62,"parts":["code","l-pick","l-return"]},{"t":14.780000000000001,"parts":["l-return"]},{"t":20.16,"parts":["msgs"]},{"t":29.29,"parts":["pool"]}];
+  cues.forEach((c) => c.parts.forEach((p, i) => {
+    tl.fromTo(root + ' [data-part="' + p + '"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, c.t + i * 0.2);
+  }));
+    tl.fromTo('#codigo-zoom', { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.035, duration: 38.60, ease: 'none' }, 0);
+    
+    
+    window.__timelines["codigo"] = tl;
+  </script>
+</template>

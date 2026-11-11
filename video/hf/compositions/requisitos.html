@@ -1,0 +1,47 @@
+<template>
+  <style>
+  #root { position: absolute; inset: 0; background: #FFFFFF; font-family: Inter, sans-serif; color: #2F3137; overflow: hidden; }
+  .wrap { position: absolute; inset: 0; }
+  .ttl { position: absolute; left: 120px; top: 54px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .abs { position: absolute; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .soft { color: #60646D; }
+  .hl-blue { background: linear-gradient(transparent 58%, #CFE3F5 58%); padding: 0 6px; }
+  .hl-mint { background: linear-gradient(transparent 58%, #CBEBDC 58%); padding: 0 6px; }
+  .hl-lilac { background: linear-gradient(transparent 58%, #DDD2F2 58%); padding: 0 6px; }
+  .hl-peach { background: linear-gradient(transparent 58%, #FAD9C6 58%); padding: 0 6px; }
+  .hl-rose { background: linear-gradient(transparent 58%, #F7CFD9 58%); padding: 0 6px; }
+  .hl-butter { background: linear-gradient(transparent 58%, #F6EBB5 58%); padding: 0 6px; }
+  .panel { background: #F7F7F8; border: 1.5px solid #D5D6DB; border-radius: 16px; }
+</style>
+  <div id="root" data-composition-id="requisitos" data-width="1920" data-height="1080">
+    <div class="wrap" id="requisitos-wrap">
+     <div class="wrap" id="requisitos-zoom">
+      <div class="ttl" id="requisitos-ttl">Requisitos y comunicación</div>
+      
+    <div class="abs" data-part="rf" style="left:0;top:0;width:1920px;height:1080px"><div class="abs" style="left:120px; top:176px; font-size:30px; font-weight:700" ><span class="hl-blue">Requisitos funcionales</span></div><div class="abs" style="left:120px; top:236px; width:780px; font-size:31px; line-height:1.25; display:flex; gap:18px"><b style="width:84px; flex:none; color:#8A6FD0">RF1</b><span>Aceptar tareas por HTTP y devolver el resultado.</span></div><div class="abs" style="left:120px; top:320px; width:780px; font-size:31px; line-height:1.25; display:flex; gap:18px"><b style="width:84px; flex:none; color:#8A6FD0">RF2</b><span>Repartir tareas con una estrategia configurable.</span></div><div class="abs" style="left:120px; top:404px; width:780px; font-size:31px; line-height:1.25; display:flex; gap:18px"><b style="width:84px; flex:none; color:#8A6FD0">RF3</b><span>Admitir nodos que entran y salen en caliente.</span></div><div class="abs" style="left:120px; top:488px; width:780px; font-size:31px; line-height:1.25; display:flex; gap:18px"><b style="width:84px; flex:none; color:#8A6FD0">RF4</b><span>Reasignar las tareas de un nodo caído (máx. 3 intentos).</span></div><div class="abs" style="left:120px; top:572px; width:780px; font-size:31px; line-height:1.25; display:flex; gap:18px"><b style="width:84px; flex:none; color:#8A6FD0">RF5</b><span>Exponer el estado y los eventos en vivo.</span></div></div>
+    <div class="abs" data-part="rnf" style="left:0;top:0;width:1920px;height:1080px"><div class="abs" style="left:1000px; top:176px; font-size:30px; font-weight:700"><span class="hl-mint">Requisitos no funcionales</span></div><div class="abs" style="left:1000px; top:236px; width:800px; font-size:31px; line-height:1.25; display:flex; gap:18px"><b style="width:84px; flex:none; color:#8A6FD0">RNF1</b><span>Escalabilidad: eficiencia ≥ 60 % con 4 nodos.</span></div><div class="abs" style="left:1000px; top:320px; width:800px; font-size:31px; line-height:1.25; display:flex; gap:18px"><b style="width:84px; flex:none; color:#8A6FD0">RNF2</b><span>Robustez: 0 tareas perdidas ante una caída.</span></div><div class="abs" style="left:1000px; top:404px; width:800px; font-size:31px; line-height:1.25; display:flex; gap:18px"><b style="width:84px; flex:none; color:#8A6FD0">RNF3</b><span>Eficiencia: p95 ≤ 1 s con 128 clientes.</span></div><div class="abs" style="left:1000px; top:488px; width:800px; font-size:31px; line-height:1.25; display:flex; gap:18px"><b style="width:84px; flex:none; color:#8A6FD0">RNF4</b><span>Bajo acoplamiento: ningún nodo conoce a otro.</span></div><div class="abs" style="left:1000px; top:572px; width:800px; font-size:31px; line-height:1.25; display:flex; gap:18px"><b style="width:84px; flex:none; color:#8A6FD0">RNF5</b><span>Observabilidad: p50, p95, p99 y reparto por nodo.</span></div></div>
+    <div class="abs" data-part="com1" style="left:120px; top:720px; width:780px; font-size:34px; line-height:1.3"><b class="hl-lilac">Entre nodos:</b> latencia y fallos parciales → protocolo simple y latido.</div>
+    <div class="abs" data-part="com2" style="left:1000px; top:720px; width:800px; font-size:34px; line-height:1.3"><b class="hl-peach">Entre hilos:</b> paso de mensajes, sin condiciones de carrera; el hilo principal queda libre.</div>
+     </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+  tl.fromTo('#requisitos-wrap', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+  tl.fromTo('#requisitos-ttl', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.to('#requisitos-wrap', { opacity: 0, duration: 0.45, ease: 'power2.in' }, 50.620);
+    
+  const root = '#requisitos-wrap';
+  tl.set(root + ' [data-part]', { opacity: 0 }, 0);
+  const cues = [{"t":0.8,"parts":[]},{"t":5.61,"parts":["rf"]},{"t":16.03,"parts":["rnf"]},{"t":30.4,"parts":["com1"]},{"t":41.69,"parts":["com2"]}];
+  cues.forEach((c) => c.parts.forEach((p, i) => {
+    tl.fromTo(root + ' [data-part="' + p + '"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, c.t + i * 0.2);
+  }));
+    tl.fromTo('#requisitos-zoom', { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.035, duration: 51.07, ease: 'none' }, 0);
+    
+    
+    window.__timelines["requisitos"] = tl;
+  </script>
+</template>

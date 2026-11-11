@@ -9,7 +9,7 @@ export const C = {
   gray:   ['#F7F7F8', '#B8B8BE'],
 };
 export const INK = '#2F3137';
-export const SOFT = '#6B6F78';
+export const SOFT = '#60646D';
 export const LINE = '#8A8E98';
 
 export const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -41,8 +41,19 @@ export function arrow(d, o = {}) {
 
 export const defs = (id) => `<defs><marker id="${id}ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="${LINE}" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>`;
 
+/** Marca el inicio de una parte nombrada (P('')) cierra la anterior). Solo agrupa; no cambia el dibujo. */
+export const P = (name) => `<!--P:${name}-->`;
+function groupParts(body) {
+  const pieces = body.split(/<!--P:([\w-]*)-->/);
+  let out = pieces[0];
+  for (let i = 1; i < pieces.length; i += 2) {
+    const name = pieces[i], content = pieces[i + 1];
+    out += name ? `<g class="part" data-part="${name}">${content}</g>` : content;
+  }
+  return out;
+}
 export const svg = (id, w, h, label, body) =>
-  `<svg viewBox="0 0 ${w} ${h}" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(label)}" font-family="Arial, Helvetica, sans-serif">${defs(id)}${body}</svg>`;
+  `<svg viewBox="0 0 ${w} ${h}" width="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="${esc(label)}" font-family="Arial, Helvetica, sans-serif">${defs(id)}${groupParts(body)}</svg>`;
 
 export const hline = (x1, y1, x2, y2, color = '#E3E4E8', dash) => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="1"${dash ? ` stroke-dasharray="${dash}"` : ''}/>`;
 export const rect = (x, y, w, h, color, o = {}) => `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${o.rx ?? 4}" fill="${C[color][0]}" stroke="${C[color][1]}" stroke-width="${o.sw ?? 1}"${o.dash ? ` stroke-dasharray="${o.dash}"` : ''}/>`;

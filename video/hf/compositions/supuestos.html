@@ -1,0 +1,47 @@
+<template>
+  <style>
+  #root { position: absolute; inset: 0; background: #FFFFFF; font-family: Inter, sans-serif; color: #2F3137; overflow: hidden; }
+  .wrap { position: absolute; inset: 0; }
+  .ttl { position: absolute; left: 120px; top: 54px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .abs { position: absolute; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .soft { color: #60646D; }
+  .hl-blue { background: linear-gradient(transparent 58%, #CFE3F5 58%); padding: 0 6px; }
+  .hl-mint { background: linear-gradient(transparent 58%, #CBEBDC 58%); padding: 0 6px; }
+  .hl-lilac { background: linear-gradient(transparent 58%, #DDD2F2 58%); padding: 0 6px; }
+  .hl-peach { background: linear-gradient(transparent 58%, #FAD9C6 58%); padding: 0 6px; }
+  .hl-rose { background: linear-gradient(transparent 58%, #F7CFD9 58%); padding: 0 6px; }
+  .hl-butter { background: linear-gradient(transparent 58%, #F6EBB5 58%); padding: 0 6px; }
+  .panel { background: #F7F7F8; border: 1.5px solid #D5D6DB; border-radius: 16px; }
+</style>
+  <div id="root" data-composition-id="supuestos" data-width="1920" data-height="1080">
+    <div class="wrap" id="supuestos-wrap">
+     <div class="wrap" id="supuestos-zoom">
+      <div class="ttl" id="supuestos-ttl">Supuestos y herramientas</div>
+      
+    <div class="abs" data-part="head" style="left:120px; top:170px; width:1680px; display:flex; gap:60px; font-size:26px; font-weight:700; color:#60646D"><div style="width:700px">SUPUESTO</div><div style="width:880px">CONSECUENCIA EN EL DISEÑO</div></div>
+    <div class="abs" data-part="s1" style="left:120px; top:240px; width:1680px; display:flex; gap:60px; font-size:36px; line-height:1.25"><div style="width:700px; font-weight:700">Los nodos fallan por parada</div><div style="width:880px" class="soft">Basta detectar el cierre de la conexión o la falta de latidos.</div></div><div class="abs" data-part="s2" style="left:120px; top:390px; width:1680px; display:flex; gap:60px; font-size:36px; line-height:1.25"><div style="width:700px; font-weight:700">Las tareas son idempotentes</div><div style="width:880px" class="soft">Entrega «al menos una vez»: reasignar sin riesgo.</div></div><div class="abs" data-part="s3" style="left:120px; top:540px; width:1680px; display:flex; gap:60px; font-size:36px; line-height:1.25"><div style="width:700px; font-weight:700">TCP en orden · un solo equipo · coordinador activo</div><div style="width:880px" class="soft">Protocolo sin numeración; el coordinador es punto único de falla.</div></div>
+    <div class="abs" data-part="tools" style="left:120px; top:730px; width:1680px; font-size:38px; line-height:1.35"><b class="hl-mint">Herramientas</b>&nbsp; Node.js nativo: <span class="mono" style="font-size:32px">net · http · worker_threads · child_process · node:test</span></div>
+    <div class="abs" data-part="tools2" style="left:120px; top:860px; width:1680px; font-size:38px; line-height:1.35"><b class="hl-lilac">Documentación</b>&nbsp; Diagramas en SVG → PDF · código en Git y GitHub</div>
+     </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+  tl.fromTo('#supuestos-wrap', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+  tl.fromTo('#supuestos-ttl', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.to('#supuestos-wrap', { opacity: 0, duration: 0.45, ease: 'power2.in' }, 57.750);
+    
+  const root = '#supuestos-wrap';
+  tl.set(root + ' [data-part]', { opacity: 0 }, 0);
+  const cues = [{"t":0.8,"parts":["head"]},{"t":5.31,"parts":["s1"]},{"t":15.549999999999997,"parts":["s2"]},{"t":24.819999999999997,"parts":["s3"]},{"t":35.56999999999999,"parts":["tools"]},{"t":49.279999999999994,"parts":["tools2"]}];
+  cues.forEach((c) => c.parts.forEach((p, i) => {
+    tl.fromTo(root + ' [data-part="' + p + '"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, c.t + i * 0.2);
+  }));
+    tl.fromTo('#supuestos-zoom', { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.035, duration: 58.20, ease: 'none' }, 0);
+    
+    
+    window.__timelines["supuestos"] = tl;
+  </script>
+</template>

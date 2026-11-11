@@ -1,0 +1,378 @@
+{
+ "apertura-0": {
+  "tts": "Hola, soy David Amaya, y este es mi proyecto de la Unidad dos del curso Arquitectura de Software: Tejiendo redes, arquitectura de software entre hilos y nodos.",
+  "dur": 9.88
+ },
+ "apertura-1": {
+  "tts": "Lo presento en la Tecnológica del Oriente, para la docente Leydi Johana Polo Amador.",
+  "dur": 4.76
+ },
+ "apertura-2": {
+  "tts": "En los próximos minutos voy a mostrar el diseño, la implementación y la evaluación de un sistema distribuido que reparte trabajo entre varios nodos y, dentro de cada nodo, entre varios hilos.",
+  "dur": 11.26
+ },
+ "apertura-3": {
+  "tts": "Todo lo que van a ver está respaldado por código real, pruebas automáticas y mediciones hechas en mi propio equipo.",
+  "dur": 7.21
+ },
+ "objetivo-0": {
+  "tts": "Los sistemas modernos rara vez corren en un solo proceso. Reparten el trabajo entre muchos nodos conectados por red y, dentro de cada nodo, entre muchos hilos.",
+  "dur": 9.38
+ },
+ "objetivo-1": {
+  "tts": "Eso trae preguntas de arquitectura: cómo se comunican las piezas, quién coordina, y qué pasa cuando un nodo falla.",
+  "dur": 6.51
+ },
+ "objetivo-2": {
+  "tts": "Mi objetivo fue diseñar, modelar y evaluar una arquitectura distribuida, usando diagramas u eme ele, patrones de diseño y un prototipo que pudiera medir.",
+  "dur": 8.96
+ },
+ "objetivo-3": {
+  "tts": "La idea central es decidir con criterios verificables, no por intuición.",
+  "dur": 4.62
+ },
+ "objetivo-4": {
+  "tts": "Por eso el video sigue el orden del informe: el sistema, la planificación, los diagramas, los patrones, el prototipo y los resultados.",
+  "dur": 7.81
+ },
+ "sistema-0": {
+  "tts": "El sistema que elegí es un procesador paralelo de tareas, con arquitectura de coordinador y trabajadores.",
+  "dur": 6.72
+ },
+ "sistema-1": {
+  "tts": "Un cliente envía tareas por hache te te pe a un coordinador.",
+  "dur": 3.66
+ },
+ "sistema-2": {
+  "tts": "El coordinador las reparte, por te ce pe, entre varios nodos, que son procesos independientes.",
+  "dur": 5.16
+ },
+ "sistema-3": {
+  "tts": "Y cada nodo ejecuta varias tareas a la vez, en su propio pool de hilos.",
+  "dur": 4.28
+ },
+ "sistema-4": {
+  "tts": "Una regla de oro: los nodos nunca se hablan entre sí. Todo pasa por el coordinador.",
+  "dur": 5.12
+ },
+ "sistema-5": {
+  "tts": "Cada hecho importante, como un nodo que entra, uno que cae o una tarea terminada, se publica como un evento en un bus.",
+  "dur": 7.19
+ },
+ "sistema-6": {
+  "tts": "Métricas, trazas y un flujo en vivo se suscriben a ese bus, sin tocar la lógica del coordinador.",
+  "dur": 5.93
+ },
+ "sistema-7": {
+  "tts": "La estrategia con que se elige el nodo es intercambiable: puede rotar por turnos, o elegir siempre el nodo menos cargado.",
+  "dur": 7.59
+ },
+ "sistema-8": {
+  "tts": "La tarea de ejemplo es una derivación de clave pe be ka de efe dos, intensiva en procesador, que dura unos veintinueve milisegundos en un hilo. Así el paralelismo se nota de verdad.",
+  "dur": 11.23
+ },
+ "requisitos-0": {
+  "tts": "Antes de programar, definí requisitos con criterios que se pueden comprobar.",
+  "dur": 4.36
+ },
+ "requisitos-1": {
+  "tts": "Los funcionales piden aceptar tareas, repartirlas con una estrategia configurable, admitir nodos que entran y salen, y reasignar el trabajo de un nodo caído.",
+  "dur": 9.97
+ },
+ "requisitos-2": {
+  "tts": "Los no funcionales fijan metas medibles: una eficiencia de al menos sesenta por ciento con cuatro nodos, cero tareas perdidas ante una caída, y una latencia percentil noventa y cinco menor a un segundo con ciento veintiocho clientes.",
+  "dur": 13.92
+ },
+ "requisitos-3": {
+  "tts": "La comunicación decide el comportamiento. Entre nodos hay latencia y fallos parciales; por eso uso un protocolo simple y un latido que distingue un nodo lento de uno caído.",
+  "dur": 10.84
+ },
+ "requisitos-4": {
+  "tts": "Dentro de un nodo, los hilos se comunican por mensajes, lo que evita condiciones de carrera, y el hilo principal queda libre para atender la red.",
+  "dur": 8.38
+ },
+ "cronograma-0": {
+  "tts": "El equipo es unipersonal, así que asumí todos los roles: arquitecto, desarrollador y evaluador.",
+  "dur": 6.05
+ },
+ "cronograma-1": {
+  "tts": "Trabajé de forma iterativa: modelar, implementar el núcleo mínimo, escribir pruebas del comportamiento crítico, medir y solo entonces optimizar.",
+  "dur": 8.78
+ },
+ "cronograma-2": {
+  "tts": "El cronograma fue de siete días, del cuatro al diez de noviembre, con actividades solapadas.",
+  "dur": 5.8
+ },
+ "componentes-0": {
+  "tts": "Este es el diagrama de componentes. Hay dos componentes principales, el coordinador y el nodo de trabajo, y se relacionan por dos interfaces.",
+  "dur": 8.24
+ },
+ "componentes-1": {
+  "tts": "El cliente consume la interfaz I Jobs, por hache te te pe.",
+  "dur": 3.55
+ },
+ "componentes-2": {
+  "tts": "Dentro del coordinador, la fachada es el punto de entrada y entrega cada solicitud a la cola global.",
+  "dur": 5.66
+ },
+ "componentes-3": {
+  "tts": "El planificador toma una tarea de la cola, consulta el registro de nodos para ver quién tiene cupo, y elige el destino.",
+  "dur": 7.39
+ },
+ "componentes-4": {
+  "tts": "El servidor de enlace envía la tarea al nodo por la interfaz I Enlace, sobre te ce pe.",
+  "dur": 4.49
+ },
+ "componentes-5": {
+  "tts": "Un monitor de latidos vigila a los nodos, y el bus de eventos recibe lo que ocurre, sin conocer a quién le interesa.",
+  "dur": 6.41
+ },
+ "componentes-6": {
+  "tts": "Dentro del nodo, el agente entrega las tareas al pool, y el pool las reparte entre los hilos de trabajo.",
+  "dur": 5.8
+ },
+ "secuencia-0": {
+  "tts": "El diagrama de secuencia muestra cómo viaja una tarea entre nodos e hilos.",
+  "dur": 4.68
+ },
+ "secuencia-1": {
+  "tts": "El cliente envía una solicitud al coordinador, y este aplica la estrategia para elegir un nodo.",
+  "dur": 6.03
+ },
+ "secuencia-2": {
+  "tts": "Le envía el mensaje run por te ce pe. El agente del nodo pasa el trabajo a un hilo, que ejecuta el cálculo fuera del hilo principal.",
+  "dur": 7.5
+ },
+ "secuencia-3": {
+  "tts": "El hilo devuelve el valor, y el nodo responde con el resultado.",
+  "dur": 3.91
+ },
+ "secuencia-4": {
+  "tts": "El coordinador publica el evento de tarea terminada, y responde al cliente con el valor.",
+  "dur": 5.51
+ },
+ "secuencia-falla-0": {
+  "tts": "Ahora, el caso interesante: el nodo se cae antes de responder, por ejemplo con una señal sig kill.",
+  "dur": 6.03
+ },
+ "secuencia-falla-1": {
+  "tts": "El coordinador lo detecta de dos maneras: el cierre del socket, que es inmediato, o un latido vencido, si el nodo se cuelga sin cerrar la conexión.",
+  "dur": 9.06
+ },
+ "secuencia-falla-2": {
+  "tts": "Publica el evento de nodo perdido, y devuelve la tarea a la cola con prioridad, con un máximo de tres intentos.",
+  "dur": 6.3
+ },
+ "secuencia-falla-3": {
+  "tts": "La tarea se envía a otro nodo, que responde con normalidad. El cliente nunca percibe la falla; solo nota un poco más de latencia.",
+  "dur": 7.87
+ },
+ "despliegue-0": {
+  "tts": "El diagrama de despliegue muestra la distribución física. Los clientes llegan al coordinador por el puerto ocho mil ochenta.",
+  "dur": 7.77
+ },
+ "despliegue-1": {
+  "tts": "Los nodos se conectan al puerto siete mil del coordinador, por te ce pe, y cada uno corre un proceso con su pool de dos hilos.",
+  "dur": 6.88
+ },
+ "despliegue-2": {
+  "tts": "Como la conexión siempre la inicia el nodo, los nodos pueden estar detrás de un cortafuegos; solo el coordinador necesita puertos abiertos.",
+  "dur": 8.15
+ },
+ "despliegue-3": {
+  "tts": "En el prototipo todo corre en un solo equipo, con procesos y puertos distintos, pero la arquitectura no cambia al pasar a varias máquinas. El coordinador sí es un punto único de falla, y lo reconozco como una limitación.",
+  "dur": 13.04
+ },
+ "patrones-0": {
+  "tts": "Elegí cuatro patrones de diseño, cada uno para resolver un problema concreto, siguiendo el catálogo de Gamma y colaboradores.",
+  "dur": 7.35
+ },
+ "patrones-1": {
+  "tts": "Proxi: el coordinador actúa como representante de todos los nodos. El cliente no sabe cuántos hay ni dónde se ejecuta cada tarea.",
+  "dur": 8.11
+ },
+ "patrones-2": {
+  "tts": "Mediador: toda interacción pasa por el coordinador. Así las conexiones crecen como N, y no como N al cuadrado, y las reglas viven en un solo lugar.",
+  "dur": 9.06
+ },
+ "patrones-3": {
+  "tts": "Observador distribuido: el bus de eventos separa a quien produce un hecho de quien lo consume, y un flujo en vivo lleva los hechos a observadores remotos.",
+  "dur": 9.59
+ },
+ "patrones-4": {
+  "tts": "Y Estrategia: la política de reparto es un objeto intercambiable, lo que me permitió comparar en la evaluación el reparto por turnos con el de menor carga.",
+  "dur": 9.72
+ },
+ "patrones-5": {
+  "tts": "Descarté un intermediario de mensajes externo, para no depender de infraestructura adicional, y pospuse el patrón Circuit Breaker, porque aquí la protección equivalente es la contrapresión y el límite de reintentos.",
+  "dur": 13.74
+ },
+ "codigo-0": {
+  "tts": "Pasemos al prototipo. Son unas quinientas líneas de Node jota ese, sin dependencias externas.",
+  "dur": 5.37
+ },
+ "codigo-1": {
+  "tts": "El corazón es este método del coordinador: mientras haya un nodo con cupo, despacha una tarea. Si no lo hay, la tarea espera en la cola.",
+  "dur": 7.71
+ },
+ "codigo-2": {
+  "tts": "Esa espera se llama contrapresión: el sistema se protege en lugar de saturar a los nodos.",
+  "dur": 4.93
+ },
+ "codigo-3": {
+  "tts": "Coordinador y nodos hablan con mensajes yeison, uno por línea, sobre una conexión te ce pe persistente: register, latido, run y resultado.",
+  "dur": 8.68
+ },
+ "codigo-4": {
+  "tts": "Cada nodo crea un pool de hilos de tamaño fijo. Los errores de una tarea regresan como datos, para que un fallo nunca destruya un hilo.",
+  "dur": 8.31
+ },
+ "terminal-0": {
+  "tts": "Esta es la demostración real. Levanto tres nodos de dos hilos y envío sesenta tareas.",
+  "dur": 5.33
+ },
+ "terminal-1": {
+  "tts": "Se completan las sesenta, y el trabajo queda repartido casi por igual entre los tres nodos.",
+  "dur": 4.94
+ },
+ "terminal-2": {
+  "tts": "Y estas son las ocho pruebas automáticas, incluyendo la caída de un nodo sin perder tareas, y la expulsión de un nodo mudo por latido vencido.",
+  "dur": 8.81
+ },
+ "terminal-3": {
+  "tts": "Una de esas pruebas descubrió un defecto real: una tarea inválida destruía el hilo y dejaba el pool sin capacidad. Lo corregí devolviendo el error como dato.",
+  "dur": 9.08
+ },
+ "escalabilidad-0": {
+  "tts": "La evaluación se hizo en mi equipo, con procesador Apple eme cuatro de diez núcleos. Cada configuración se midió tres veces y se reporta la mediana.",
+  "dur": 9.27
+ },
+ "escalabilidad-1": {
+  "tts": "Al pasar de uno a cuatro nodos, el rendimiento sube de sesenta y ocho coma siete a ciento ochenta y siete coma uno tareas por segundo: una aceleración de dos coma siete dos.",
+  "dur": 10.66
+ },
+ "escalabilidad-2": {
+  "tts": "Dentro de un solo nodo, la escala es casi lineal hasta cuatro hilos, con noventa y uno por ciento de eficiencia, y baja a sesenta y tres por ciento con ocho hilos.",
+  "dur": 9.25
+ },
+ "escalabilidad-3": {
+  "tts": "La causa no es la arquitectura sino el equipo: ocho hilos, el coordinador, el generador de carga y el sistema operativo compiten por solo diez núcleos, y la parte secuencial del coordinador impone el límite de la ley de Amdahl.",
+  "dur": 14.11
+ },
+ "escalabilidad-4": {
+  "tts": "Como comprobación, la ley de Little predice una latencia de cero coma noventa y tres segundos, casi idéntica a la mediana medida de novecientos veintisiete milisegundos.",
+  "dur": 10.14
+ },
+ "robustez-0": {
+  "tts": "Para probar la robustez uso tres nodos y novecientas tareas. Al treinta por ciento de la carga, mato un nodo con sig kill.",
+  "dur": 7.55
+ },
+ "robustez-1": {
+  "tts": "Más adelante, al sesenta por ciento, lanzo un nodo nuevo con el mismo identificador.",
+  "dur": 5.29
+ },
+ "robustez-2": {
+  "tts": "Resultado: las novecientas tareas se completan, y cero tareas se pierden.",
+  "dur": 4.67
+ },
+ "robustez-3": {
+  "tts": "Las cuatro tareas que el nodo caído tenía en vuelo se reasignaron, y terminaron en el segundo intento.",
+  "dur": 5.78
+ },
+ "robustez-4": {
+  "tts": "La latencia percentil noventa y cinco se mantuvo en trescientos sesenta y ocho milisegundos, y el nodo reincorporado volvió a recibir trabajo por sí solo.",
+  "dur": 9.79
+ },
+ "robustez-5": {
+  "tts": "La detección fue inmediata porque el sistema operativo cierra el socket; el caso del nodo colgado lo cubre el latido, que verifiqué con una prueba automática.",
+  "dur": 9.97
+ },
+ "optimizacion-0": {
+  "tts": "La primera versión, V cero, era deliberadamente simple, y su medición reveló tres cuellos de botella.",
+  "dur": 6.39
+ },
+ "optimizacion-1": {
+  "tts": "Uno: crear un hilo nuevo por cada tarea. Dos: despachar sin límite con reparto por turnos, lo que forma colas largas en los nodos. Y tres: el coordinador como punto único.",
+  "dur": 10.51
+ },
+ "optimizacion-2": {
+  "tts": "El primer ajuste, V uno, reemplaza eso por un pool de hilos reutilizables: diecisiete por ciento más de rendimiento.",
+  "dur": 6.67
+ },
+ "optimizacion-3": {
+  "tts": "El segundo, V dos, elige siempre el nodo menos cargado y limita a dos las tareas en vuelo por hilo; el resto espera en la cola global.",
+  "dur": 8.14
+ },
+ "optimizacion-4": {
+  "tts": "Frente a la línea base, V dos rinde veintiún por ciento más, y reduce la latencia percentil noventa y cinco en treinta y siete por ciento, y la noventa y nueve en cuarenta y uno.",
+  "dur": 10.37
+ },
+ "optimizacion-5": {
+  "tts": "Con esto se cumple la meta de latencia menor a un segundo, que la línea base incumplía, y el sistema se comporta de forma mucho más predecible.",
+  "dur": 8.83
+ },
+ "cierre-0": {
+  "tts": "Para cerrar: el proyecto cumplió su objetivo. Los diagramas describen con precisión lo que el prototipo hace, y los patrones resolvieron problemas concretos y medibles.",
+  "dur": 9.89
+ },
+ "cierre-1": {
+  "tts": "El sistema escala, con una aceleración de dos coma siete con cuatro nodos; tolera la caída de un nodo sin perder tareas; y mejoró treinta y siete por ciento su latencia con dos ajustes que salieron de medir, no de adivinar.",
+  "dur": 13.09
+ },
+ "cierre-2": {
+  "tts": "Como trabajo futuro quedan la persistencia de la cola, un coordinador de respaldo con elección de líder, autenticación entre componentes y pruebas en varias máquinas con red real.",
+  "dur": 11.38
+ },
+ "cierre-3": {
+  "tts": "El informe completo y todo el código están en el repositorio Tejiendo redes, en GitHub. Gracias por su atención.",
+  "dur": 6.36
+ },
+ "supuestos-0": {
+  "tts": "Todo diseño parte de supuestos, y conviene decirlos en voz alta.",
+  "dur": 4.06
+ },
+ "supuestos-1": {
+  "tts": "Supongo que los nodos fallan por parada: el proceso muere o deja de responder, pero no miente. Por eso basta detectar el cierre de la conexión o la ausencia de latidos.",
+  "dur": 9.79
+ },
+ "supuestos-2": {
+  "tts": "Supongo que las tareas son idempotentes: ejecutarlas dos veces da el mismo resultado. Eso permite la entrega al menos una vez, y reasignar sin riesgo.",
+  "dur": 8.82
+ },
+ "supuestos-3": {
+  "tts": "Supongo que te ce pe entrega los mensajes en orden dentro de una conexión, que el coordinador permanece activo durante la operación, y que el prototipo corre en un solo equipo.",
+  "dur": 10.3
+ },
+ "supuestos-4": {
+  "tts": "Las herramientas son las nativas de Node jota ese: los módulos de red, los hilos de trabajo, procesos hijos para simular nodos y el ejecutor de pruebas. Cero dependencias, para que cualquiera pueda reproducirlo.",
+  "dur": 13.26
+ },
+ "supuestos-5": {
+  "tts": "Los diagramas y el informe los dibujé en vectores y los exporté a pe de efe, y el código vive en Git, con commits pequeños atribuidos a mí.",
+  "dur": 7.92
+ },
+ "resumen-0": {
+  "tts": "Revisemos los requisitos que definí al comienzo, contra los datos medidos.",
+  "dur": 4.19
+ },
+ "resumen-1": {
+  "tts": "Escalabilidad: se pedía al menos sesenta por ciento de eficiencia con cuatro nodos, y se obtuvo sesenta y ocho por ciento. Cumplido.",
+  "dur": 8.27
+ },
+ "resumen-2": {
+  "tts": "Robustez: se pedían cero tareas perdidas ante la caída de un nodo, y de novecientas tareas se completaron novecientas. Cumplido.",
+  "dur": 8.09
+ },
+ "resumen-3": {
+  "tts": "Eficiencia: se pedía una latencia percentil noventa y cinco menor a un segundo con ciento veintiocho clientes. La línea base marcó mil trescientos veintiún milisegundos y no cumplía; la versión optimizada marcó ochocientos treinta y tres. Cumplido tras el ajuste.",
+  "dur": 16.74
+ },
+ "resumen-4": {
+  "tts": "Bajo acoplamiento y observabilidad: ningún nodo conoce a otro, y cada ejecución reporta percentiles de latencia y el reparto por nodo. Cumplido.",
+  "dur": 9.13
+ },
+ "resumen-5": {
+  "tts": "Los requisitos funcionales se verifican con las ocho pruebas automáticas, todas en verde.",
+  "dur": 5.73
+ }
+}

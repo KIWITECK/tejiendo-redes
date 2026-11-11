@@ -1,0 +1,43 @@
+<template>
+  <style>
+  #root { position: absolute; inset: 0; background: #FFFFFF; font-family: Inter, sans-serif; color: #2F3137; overflow: hidden; }
+  .wrap { position: absolute; inset: 0; }
+  .ttl { position: absolute; left: 120px; top: 54px; font-size: 50px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .abs { position: absolute; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+  .soft { color: #60646D; }
+  .hl-blue { background: linear-gradient(transparent 58%, #CFE3F5 58%); padding: 0 6px; }
+  .hl-mint { background: linear-gradient(transparent 58%, #CBEBDC 58%); padding: 0 6px; }
+  .hl-lilac { background: linear-gradient(transparent 58%, #DDD2F2 58%); padding: 0 6px; }
+  .hl-peach { background: linear-gradient(transparent 58%, #FAD9C6 58%); padding: 0 6px; }
+  .hl-rose { background: linear-gradient(transparent 58%, #F7CFD9 58%); padding: 0 6px; }
+  .hl-butter { background: linear-gradient(transparent 58%, #F6EBB5 58%); padding: 0 6px; }
+  .panel { background: #F7F7F8; border: 1.5px solid #D5D6DB; border-radius: 16px; }
+</style>
+  <div id="root" data-composition-id="patrones" data-width="1920" data-height="1080">
+    <div class="wrap" id="patrones-wrap">
+     <div class="wrap" id="patrones-zoom">
+      <div class="ttl" id="patrones-ttl">Patrones de diseño</div>
+      <div class="abs" style="left:120px; top:170px; width:1680px"><svg width="1680" viewBox="0 0 624 292" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Patrones de diseño aplicados al sistema" font-family="Arial, Helvetica, sans-serif"><defs><marker id="patrones-ar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7.5" markerHeight="7.5" orient="auto-start-reverse"><path d="M1.5 1.5 L8.5 5 L1.5 8.5" fill="none" stroke="#8A8E98" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></marker></defs><g class="part" data-part="proxy"><rect x="14" y="10" width="254" height="94" rx="7" fill="#F3EEFB" stroke="#AE9BD9" stroke-width="1.1"/><text x="141" y="37.5" font-size="11.5" text-anchor="middle" font-weight="700" fill="#2F3137">Proxy</text><text x="141" y="52.5" font-size="11" text-anchor="middle" fill="#60646D">Fachada HTTP única del coordinador.</text><text x="141" y="67.5" font-size="11" text-anchor="middle" fill="#60646D">Oculta al cliente cuántos nodos hay</text><text x="141" y="82.5" font-size="11" text-anchor="middle" fill="#60646D">y dónde se ejecuta cada tarea.</text></g><g class="part" data-part="mediator"><rect x="356" y="10" width="254" height="94" rx="7" fill="#FDEFF2" stroke="#E39EB0" stroke-width="1.1"/><text x="483" y="37.5" font-size="11.5" text-anchor="middle" font-weight="700" fill="#2F3137">Mediator</text><text x="483" y="52.5" font-size="11" text-anchor="middle" fill="#60646D">Toda coordinación pasa por el coordinador.</text><text x="483" y="67.5" font-size="11" text-anchor="middle" fill="#60646D">Los nodos no se conocen entre sí:</text><text x="483" y="82.5" font-size="11" text-anchor="middle" fill="#60646D">bajo acoplamiento y alta cohesión.</text></g><g class="part" data-part="observer"><rect x="14" y="186" width="254" height="94" rx="7" fill="#FCF8E6" stroke="#D9C26C" stroke-width="1.1"/><text x="141" y="213.5" font-size="11.5" text-anchor="middle" font-weight="700" fill="#2F3137">Observer distribuido</text><text x="141" y="228.5" font-size="11" text-anchor="middle" fill="#60646D">Bus de eventos + flujo SSE (/events).</text><text x="141" y="243.5" font-size="11" text-anchor="middle" fill="#60646D">Métricas y trazas se suscriben sin</text><text x="141" y="258.5" font-size="11" text-anchor="middle" fill="#60646D">modificar el planificador.</text></g><g class="part" data-part="strategy"><rect x="356" y="186" width="254" height="94" rx="7" fill="#EBF7F1" stroke="#82C7A9" stroke-width="1.1"/><text x="483" y="213.5" font-size="11.5" text-anchor="middle" font-weight="700" fill="#2F3137">Strategy</text><text x="483" y="228.5" font-size="11" text-anchor="middle" fill="#60646D">Política de reparto intercambiable:</text><text x="483" y="243.5" font-size="11" text-anchor="middle" fill="#60646D">roundRobin o leastLoaded, elegida</text><text x="483" y="258.5" font-size="11" text-anchor="middle" fill="#60646D">al arrancar el coordinador.</text></g><g class="part" data-part="centro"><circle cx="312" cy="148" r="52" fill="#EEF5FB" stroke="#8DB7DD" stroke-width="1.2"/><text x="312" y="143" font-size="12" text-anchor="middle" font-weight="700" fill="#2F3137">Sistema</text><text x="312" y="158" font-size="12" text-anchor="middle" font-weight="700" fill="#2F3137">distribuido</text><text x="312" y="173" font-size="11" text-anchor="middle" fill="#60646D">de tareas</text></g></svg></div>
+     </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    
+  tl.fromTo('#patrones-wrap', { opacity: 0 }, { opacity: 1, duration: 0.45, ease: 'power2.out' }, 0);
+  tl.fromTo('#patrones-ttl', { opacity: 0, x: -24 }, { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.15);
+  tl.to('#patrones-wrap', { opacity: 0, duration: 0.45, ease: 'power2.in' }, 61.170);
+    
+  const root = '#patrones-wrap';
+  tl.set(root + ' [data-part]', { opacity: 0 }, 0);
+  const cues = [{"t":0.8,"parts":["centro"]},{"t":8.6,"parts":["proxy"]},{"t":17.159999999999997,"parts":["mediator"]},{"t":26.669999999999995,"parts":["observer"]},{"t":36.709999999999994,"parts":["strategy"]},{"t":46.879999999999995,"parts":[]}];
+  cues.forEach((c) => c.parts.forEach((p, i) => {
+    tl.fromTo(root + ' [data-part="' + p + '"]', { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, c.t + i * 0.2);
+  }));
+    tl.fromTo('#patrones-zoom', { scale: 1, transformOrigin: '50% 50%' }, { scale: 1.035, duration: 61.62, ease: 'none' }, 0);
+    
+    
+    window.__timelines["patrones"] = tl;
+  </script>
+</template>
