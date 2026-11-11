@@ -1,0 +1,16 @@
+{
+  "name": "tejiendo-redes",
+  "version": "1.0.0",
+  "description": "Prototipo de sistema distribuido (nodos + hilos) para la actividad Tejiendo redes, Arquitectura de Software, Unidad 2.",
+  "type": "module",
+  "author": "David Ricardo Amaya Rojas",
+  "license": "MIT",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start:coordinator": "node src/coordinator-main.js",
+    "start:node": "node src/node.js",
+    "demo": "node bench/demo.js",
+    "bench": "node bench/run.js",
+    "test": "node --test test/strategies.test.js test/cluster.test.js"
+  }
+}
