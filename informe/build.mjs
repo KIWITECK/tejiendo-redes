@@ -12,6 +12,7 @@ const nf = (n, d = 1) => Number(n).toFixed(d).replace('.', ',');
 
 const TITLE = 'Tejiendo redes: arquitectura de software entre hilos y nodos';
 const REPO = 'https://github.com/KIWITECK/tejiendo-redes';
+const VIDEO = 'https://youtu.be/yhVhYCH01MI';
 
 // ---------- numeración automática de tablas y figuras ----------
 const counters = { t: 0, f: 0 }, nums = {};
@@ -209,7 +210,7 @@ add(p('El entorno se simula en un equipo con procesos reales: el coordinador cor
 add(h2('Pruebas automáticas'));
 add(p('Ocho pruebas con el ejecutor nativo de Node.js verifican el comportamiento crítico: la selección de las dos estrategias, el aislamiento de observadores defectuosos, el reparto efectivo entre nodos, la caída de un nodo sin pérdida de tareas, la expulsión de un nodo mudo por heartbeat vencido y el rechazo de una tarea inválida tras agotar los reintentos. Esta última prueba descubrió un defecto real: una tarea inválida lanzaba una excepción dentro del hilo y lo destruía, dejando el pool sin capacidad. Se corrigió devolviendo el error como dato y conservando el hilo.'));
 add(h2('Recursos del proyecto'));
-add(p(`Código fuente: <a href="${REPO}">${REPO}</a>. El historial contiene todos los commits atribuidos al autor. Los comandos <code>npm run demo</code>, <code>npm test</code> y <code>npm run bench</code> ejecutan la demostración, las pruebas y la evaluación completa. Video de presentación (YouTube, no listado): el enlace se incluirá en este apartado y en el área de entrega del LMS una vez publicado.`));
+add(p(`Código fuente: <a href="${REPO}">${REPO}</a>. El historial contiene todos los commits atribuidos al autor. Los comandos <code>npm run demo</code>, <code>npm test</code> y <code>npm run bench</code> ejecutan la demostración, las pruebas y la evaluación completa. Video de presentación (YouTube, no listado, 13 min 34 s): <a href="${VIDEO}">${VIDEO}</a>.`));
 
 // Evaluación
 add(h1('Evaluación del desempeño y ajustes'));

@@ -38,4 +38,6 @@ curl localhost:8080/stats
 - Caída de un nodo con SIGKILL a mitad de carga: 900/900 tareas completadas, 4 reasignadas, 0 fallidas.
 - Optimización V0 → V2: +21 % de rendimiento y −37 % en la latencia p95.
 
+Video de presentación: https://youtu.be/yhVhYCH01MI
+
 Informe completo (APA 7): `informe/informe.pdf` (fuente HTML: `informe/informe.html`, generado con `node informe/build.mjs`).
